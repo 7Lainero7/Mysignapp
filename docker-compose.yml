@@ -1,0 +1,23 @@
+version: '3'
+services:
+
+  sign_app:
+    build: .
+    container_name: flask_sign_app_container
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+
+  db:
+    image: postgres:13-alpine
+    restart: always
+    container_name: postgres_db_container
+    ports:
+        - "5000:80"
+    volumes:
+        - ./instance/sign.db:/val/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=1234
+      - POSTGRES_DB=dbsign

@@ -1,0 +1,13 @@
+<html lang="ru">
+    <meta charset="UTF-8">
+    <title>База данных</title>
+<div class="container mt-5"
+    <h1>База данных:</h1>
+    {% for el in sign %}
+    <div class="alert alert-info">
+        <p>Номер в БД: {{el._id}} Текст: {{el.text}}</p>
+        <p><b>Дата:{{el.date.date()}}</b></p>
+        <a href="info/{{el._id}}/del" class="btn btn_danger">Удалить</a>
+    </div>
+    {% endfor %}
+<a href="/">На страницу для заполнения</a>
